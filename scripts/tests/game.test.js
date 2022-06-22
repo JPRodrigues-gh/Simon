@@ -8,7 +8,7 @@ beforeAll(() => {
     let fs = require("fs");
     let fileContents = fs.readFileSync("index.html", "utf-8");
     document.open();
-    document.write("fileContents");
+    document.write(fileContents);
     document.close();
 });
 
@@ -43,13 +43,9 @@ describe("newGame works correctly", () => {
     });
     test("should clear current game array", () => {
         expect(game.currentGame.length).toBe(0);
-        //model solution
-        // expect(game.currentGame).toEqual([]);
     });
     test("should clear player moves array", () => {
         expect(game.playerMoves.length).toBe(0);
-        //model solution
-        // expect(game.playerMoves).toEqual([]);
     });
     test("should display 0 for the element with id of score", () => {
         expect(document.getElementById("score").innerText).toEqual(0);
