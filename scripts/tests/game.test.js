@@ -103,4 +103,9 @@ describe("gamePlay works correctly", () => {
         playerTurn();
         expect(window.alert).toBeCalledWith("Wrong move!");
     });
+    // test("check if the turnInProgress key is set to true", () => {
+    test("should toggle turnInProgress to true", () => {
+        showTurns();
+        expect(game.turnInProgress).toBe(true);
+    })
 });
