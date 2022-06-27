@@ -6,6 +6,8 @@ let game = {
     playerMoves: [],
     turnNumber: 0,
     choices: ["button1", "button2", "button3", "button4"],
+    lastButton: "",
+    turnInProgress: false
 }
 
 function newGame() {
@@ -17,7 +19,7 @@ function newGame() {
     for (let circle of circles) {
         if (circle.getAttribute("data-listener") !== "true") {
             circle.addEventListener("click", (e) => {
-                if (game.currentGame.length > 0) {
+                if (game.currentGame.length > 0 && !game.turnInProgress) {
                     let move = e.target.getAttribute("id");
                     game.lastButton = move;
                     lightsOn(move);
